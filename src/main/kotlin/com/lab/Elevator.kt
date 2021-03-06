@@ -26,7 +26,6 @@ fun main(args: Array<String>) {
                 -999
             }
         }
-
         println("floor: ${floor}")
 
         //if(floor > 8 || floor < -1)continue
