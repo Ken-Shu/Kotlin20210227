@@ -5,24 +5,30 @@ import java.text.SimpleDateFormat
 import kotlin.math.log2
 import java.util.Date
 
-var Endtime: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
-var Startime: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
+
+
 fun Int.toPayMoneyStar(): String {
+    var Startime: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
     var Star: String = Startime.format(Date())
     return Star
 }
 
 fun Int.toPayMoneyEnd(): String {
+    var Endtime: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
     var End: String = Endtime.format(Date())
     return End
 }
 
 fun Int.PayMoney(d11: String, d22: String): Long {
-    var d1: Date = Startime.parse(d11)
-    var d2: Date = Endtime.parse(d22)
-    val day: Long =
-        if ((d1.getTime() - d2.getTime()) / (24 * 60 * 60 * 1000) > 0) (d1.getTime() - d2.getTime()) / (24 * 60 * 60 * 1000) else (d2.getTime() - d1.getTime()) / (24 * 60 * 60 * 1000)
-    return day
+    var simple : SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
+    var d1: Date = simple.parse(d11)
+    var d2: Date = simple.parse(d22)
+    var l : Long = d2.time-d1.time
+    val day = l / (24 * 60 * 60 * 1000)
+    val hour = l / (60 * 60 * 1000) - day * 24
+    val min = l / (60 * 1000) - day * 24 * 60 - hour * 60
+    val s = l / 1000 - day * 24 * 60 * 60 - hour * 60 * 60 - min * 60
+    return s
 }
 
 fun main() {
