@@ -7,7 +7,7 @@ import kotlin.math.pow
 fun Int.toBinary(len: Int): String {
     //this = 上放的 Int = p =8
     //replace 把 " " 置換成 0
-    return String.format("%" + len + "s", this.toString(2)).replace(" ", "0")
+    return String.format("%"+ len + "s", this.toString(2)).replace(" ", "0")
 }
 
 var num = 8 //目前車位
