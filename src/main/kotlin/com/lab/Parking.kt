@@ -22,7 +22,7 @@ fun main() {
         val isPass: Boolean = (p.and(n) == 0) // p & n 位元運算
         if (isPass) {
             p += n
-            println("最近車位狀態 :${p.toBinary(num)} , p=${p}")
+            println("停入${n}號 最近車位狀態 :${p.toBinary(num)} , p=${p}")
         } else {
             //log2 表示 n.toDouble 是 2的 幾次方
                 // 假設 log2(4) 答案出來就是2 因為 4 是2的2次方 可以用於二進制運算
