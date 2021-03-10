@@ -45,6 +45,7 @@ fun main() {
                 print("請選擇車位停放位置(0~7): ")
                 var n = readLine()!!.toInt()
                 println("${n}號 停放時間:${MoneyStar}")
+                //把 MoneyStar(進場時間) 丟進 parkPosition (停車位置 的陣列內)
                 parkPosition [n] = MoneyStar
                 n = Math.pow(2.toDouble(), n.toDouble()).toInt()
                 //n = 2.toDouble().pow(n).toInt()
@@ -53,6 +54,7 @@ fun main() {
                 if (isPass) {
                     p2 += n
                     println("最近車位狀態: ${p2.toBinary(num)} , p=${p2}")
+                    println("")
                 } else {
                     n = log2(n.toDouble()).toInt()
                     println("${n}無法停車")
