@@ -7,24 +7,6 @@ import java.util.Date
 import kotlin.math.pow
 
 
-//fun Int.toPayMoneyStar(): String {
-//    var StarDate : Date = Date()
-//    var Star: String = simple.format(StarDate)
-//    return Star
-//}
-//
-//fun Int.toPayMoneyEnd(): String {
-//    var EndDate : Date = Date()
-//    var End: String = simple.format(EndDate)
-//    return End
-//}
-//
-//fun Int.PayMoney(d1: String, d2: String): Long {
-//    var diff : Long= simple.parse(d1).time - simple.parse(d2).time
-//
-//    return diff
-//}
-
 var num2 = 8 // 目前車位
 var p2 = 0 // 目前停車狀態
 
@@ -44,7 +26,7 @@ fun main() {
             1 -> {
                 print("請選擇車位停放位置(0~7): ")
                 var n = readLine()!!.toInt()
-                println("${n}號 停放時間:${MoneyStar}")
+                println("停入 ${n} 號 停放時間:${MoneyStar}")
                 //把 MoneyStar(進場時間) 丟進 parkPosition (停車位置 的陣列內)
                 parkPosition [n] = MoneyStar
                 n = Math.pow(2.toDouble(), n.toDouble()).toInt()
@@ -57,7 +39,7 @@ fun main() {
                     println("")
                 } else {
                     n = log2(n.toDouble()).toInt()
-                    println("${n}無法停車")
+                    println("${n}號 無法停車")
                 }
             }
             2 -> {
@@ -72,17 +54,17 @@ fun main() {
                     println("最近車位狀態: ${p2.toBinary(num2)}, p =${p2}")
                 } else {
                     n1 = log2(n.toDouble()).toInt()
-                    println("${n}沒有車輛")
+                    println("${n}號 沒有車輛")
                     return
                 }
-                println("${n}號 停放時間${parkPosition[n]}")
+                println("${n}號車位 停放時間${parkPosition[n]}")
                 //移車出來 並算錢
                 var EndDate: Date = Date()
                 var MoneyEnd: String = simple.format(EndDate)
                 var PayTime: Long = (simple.parse(MoneyEnd).time - simple.parse(parkPosition[n]).time)
-                var second: Long = PayTime / 1000 // 秒
-                var minute: Long = PayTime / 1000 / 60 //分
-                var time: Long = PayTime / 1000 / 60 / 60 //時
+                var second: Long = PayTime / 1000 % 60// 秒
+                var minute: Long = PayTime / 1000 / 60 %60 //分
+                var time: Long = PayTime / 1000 / 60 / 60 % 24 //時
                 var day: Long = PayTime / 1000 / 60 / 60 / 24 //日
                 var oneHourMoney: Int = 200
                 println("取車時間:${MoneyEnd}")
