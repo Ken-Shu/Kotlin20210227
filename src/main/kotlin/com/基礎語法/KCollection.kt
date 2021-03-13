@@ -1,4 +1,4 @@
-package com.ktest
+package com.基礎語法
 
 fun main() {
     //集合 Set , List , Map

@@ -1,4 +1,4 @@
-package com.ktest
+package com.基礎語法
 
 class Rect(val h: Int, val w: Int) {
     val area: Int = h * w

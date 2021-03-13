@@ -1,6 +1,6 @@
 package com.jtest;
 
-import com.ktest.KHello;
+import com.基礎語法.KHello;
 
 public class JHello {
     public void callMe(){

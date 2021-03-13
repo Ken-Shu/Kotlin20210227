@@ -1,4 +1,4 @@
-package com.ktest
+package com.基礎語法
 
 class Exam (val name: String){
     var score: Int = 0
