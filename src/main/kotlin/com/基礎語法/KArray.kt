@@ -1,6 +1,5 @@
-package com.ktest
+package com.基礎語法
 
-import java.util.*
 import kotlin.random.Random as r
 
 fun main() {

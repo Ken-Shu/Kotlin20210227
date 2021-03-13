@@ -10,13 +10,13 @@ import kotlin.math.pow
 var num2 = 8 // 目前車位
 var p2 = 0 // 目前停車狀態
 
-val simple: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
+val sample: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
 var parkPosition = arrayOfNulls<String>(num2)//停車位置
 fun main() {
 
     while (true) {
         var StarDate: Date = Date()
-        var MoneyStar: String = simple.format(StarDate)
+        var MoneyStar: String = sample.format(StarDate)
         //要把每個取得的時間 包進每個停車位置內
         println("目前停車狀況${p2.toBinary(num2)}")
         println("請選擇您要的服務: 1 停車 2 移車 3 離開系統")
@@ -55,13 +55,13 @@ fun main() {
                 } else {
                     n1 = log2(n.toDouble()).toInt()
                     println("${n}號 沒有車輛")
-                    return
+
                 }
                 println("${n}號車位 停放時間${parkPosition[n]}")
                 //移車出來 並算錢
                 var EndDate: Date = Date()
-                var MoneyEnd: String = simple.format(EndDate)
-                var PayTime: Long = (simple.parse(MoneyEnd).time - simple.parse(parkPosition[n]).time)
+                var MoneyEnd: String = sample.format(EndDate)
+                var PayTime: Long = (sample.parse(MoneyEnd).time - sample.parse(parkPosition[n]).time)
                 var second: Long = PayTime / 1000 % 60// 秒
                 var minute: Long = PayTime / 1000 / 60 %60 //分
                 var time: Long = PayTime / 1000 / 60 / 60 % 24 //時
@@ -70,7 +70,7 @@ fun main() {
                 println("取車時間:${MoneyEnd}")
                 println("車輛停放時間 ${day} 日 ${time} 時 ${minute} 分 ${second} 秒")
                 if (PayTime <= 360_0000) { //小於半小時
-                    println("未滿一小時 停車費用$20 ")
+                    println("未滿一小時 停車費用$200 ")
                     println("")
                 } else {
                     println("一個小時${oneHourMoney}元 總計:${oneHourMoney * time}")
