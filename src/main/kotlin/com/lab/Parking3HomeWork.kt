@@ -26,14 +26,15 @@ fun main() {
             1 -> {
                 print("請選擇車位停放位置(0~7): ")
                 var n = readLine()!!.toInt()
-                println("停入 ${n} 號 停放時間:${MoneyStar}")
-                //把 MoneyStar(進場時間) 丟進 parkPosition (停車位置 的陣列內)
-                parkPosition [n] = MoneyStar
+                var n1 = n // 把輸入的位置 給n1 然後用 n 做二進制計算
                 n = Math.pow(2.toDouble(), n.toDouble()).toInt()
                 //n = 2.toDouble().pow(n).toInt()
                 //停車進去
                 val isPass: Boolean = (p2.and(n) == 0)
                 if (isPass) {
+                    println("停入 ${n1} 號 停放時間:${MoneyStar}")
+                    //把 MoneyStar(進場時間) 丟進 parkPosition (停車位置 的陣列內)
+                    parkPosition [n1] = MoneyStar
                     p2 += n
                     println("最近車位狀態: ${p2.toBinary(num)} , p=${p2}")
                     println("")
@@ -55,7 +56,7 @@ fun main() {
                 } else {
                     n1 = log2(n.toDouble()).toInt()
                     println("${n}號 沒有車輛")
-                    return
+                    continue
                 }
                 println("${n}號車位 停放時間${parkPosition[n]}")
                 //移車出來 並算錢
@@ -69,7 +70,7 @@ fun main() {
                 var oneHourMoney: Int = 200
                 println("取車時間:${MoneyEnd}")
                 println("車輛停放時間 ${day} 日 ${time} 時 ${minute} 分 ${second} 秒")
-                if (PayTime <= 360_0000) { //小於半小時
+                if (PayTime <= 360_0000) { //小於一小時
                     println("未滿一小時 停車費用$20 ")
                     println("")
                 } else {
