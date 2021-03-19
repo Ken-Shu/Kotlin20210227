@@ -29,4 +29,8 @@ fun main() {
     //驗證 是否每個欄位都有資料 ?
     user.validateBerofeSave()
     saveUser(user)
+    val user2 = User(0,"Ken","Tapia")
+    user2.validateBerofeSave()
+    saveUser(user2)
+
 }
